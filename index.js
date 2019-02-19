@@ -12,13 +12,13 @@ function setCart(newCart){
   var price = Math.random() * 100
   var roundedPrice = Math.floor(price)
   cart.push({[item]: roundedPrice})
-  console.log(item + " has been added to your cart.")
+  console.log(item + `has been added to your cart.`)
   return cart;
 }
 
  function viewCart(){
   if (cart.length === 0){
-    console.log("Your shopping cart is empty.")
+    console.log(`Your shopping cart is empty.`)
   } else {
 
      var itemsAndPrices = [];
@@ -30,7 +30,7 @@ function setCart(newCart){
       }
     }
     var cartItems = itemsAndPrices.join(", ");
-    console.log("In your cart, you have " + cartItems + ".")
+    console.log(`In your cart, you have ` + cartItems + `.`)
   }
 }
 
@@ -47,14 +47,14 @@ function setCart(newCart){
   }
 
    if(itemInCart === false){
-    console.log("That item is not in your cart.")
+    console.log(`That item is not in your cart.`)
   }
 }
 
 
  function placeOrder(cc){
   if(!cc){
-    console.log("We don't have a credit card on file for you to place your order.")
+    console.log(`We don't have a credit card on file for you to place your order.`)
   }
 
    console.log(`Your total cost is $${total()}, which will be charged to the card ${cc}.`)
