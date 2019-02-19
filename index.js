@@ -1,5 +1,9 @@
 var cart = [];
 
+function addToCart() {
+  return ("itemName.");
+}
+
 function getCart() {
  return cart;
 }
