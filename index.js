@@ -4,6 +4,83 @@ function addToCart() {
   return ("itemName.");
 }
 
+Done.
+
+@JWizerd
+JWizerd committed on Aug 22, 2016
+commit fd85437002bc1f7aabbf5c0b3b822b0d8fafd1fc
+     
+54  index.js
+@@ -1,9 +1,52 @@
+var cart;	"use strict"
+
+ var cart = [];
+
+ function getCart() {
+  return cart;
+}
+
+
+ function setCart(newCart) {	function setCart(newCart) {
+  cart = newCart;	  cart = newCart;
+}	}
+
+
+ function addToCart(item) {
+  var price = Math.floor(Math.random() * 100) + 1;
+  var item_object = {};
+  item_object[item] = price
+  cart.push(item_object)
+  console.log(item + " has been added to your cart.");
+  return cart
+}
+
+ function viewCart() {
+  if (cart.length === 0) {
+    console.log("Your shopping cart is empty.")
+  } else {
+    var items = [];
+    for (var i = 0; i < cart.length; i++) {
+      for (var item in cart[i]) {
+        items.push(item + " at $" + cart[i][item])
+      }
+    }
+    console.log("In your cart, you have " + items.join(", ") + ".");
+  }
+}
+
+ function removeFromCart(item) {
+  var itemInCart = false
+  for(var i = 0; i < cart.length; i++){
+    if (cart[i].hasOwnProperty(item)) {
+      itemInCart = true;
+      cart.splice(i, 1);
+    }
+  }
+  if (!itemInCart) {
+    console.log("That item is not in your cart.");
+  }
+  return cart
+}
+
+ function total() {	function total() {
+  let t = 0	  let t = 0
+
+
+ @@ -15,3 +58,12 @@ function total() {
+
+
+   return t	  return t
+}	}
+
+ function placeOrder(creditCard) {
+  if (!creditCard) {
+    console.log("We don't have a credit card on file for you to place your order.");
+  } else {
+    console.log("Your total cost is $" + total() + ", which will be charged to the card " + creditCard + ".");
+    cart = [];
+  }
+}
 
 function getCart() {
  return cart;
